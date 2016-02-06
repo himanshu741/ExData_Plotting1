@@ -1,6 +1,6 @@
 
 #read the file
-x<-read.table("exdata_data_household_power_consumption/household_power_consumption.txt",header=TRUE,sep=";")
+x<-read.table("exdata_data_household_power_consumption/household_power_consumption.txt",header=TRUE,sep=";",stringsAsFactors = FALSE,dec =".")
 #extract data which has dates as 1/2/2007 or 2/2/2007
 
 x<-x[x$Date=="1/2/2007" | x$Date=="2/2/2007",]
@@ -21,4 +21,4 @@ plot(datetime, x$Sub_metering_1 , type="l", ylab="Energy Submetering", xlab="")
 lines(datetime,x$Sub_metering_2,type = "l",col="red")
 lines(datetime,x$Sub_metering_3,type = "l",col="blue")
 legend("topright",lty=1, lwd=2.5,legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("black","red","blue"))
-dev.off
+dev.off()
